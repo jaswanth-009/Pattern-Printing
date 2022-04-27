@@ -1,0 +1,61 @@
+for even number of rows
+
+*   
+**  
+*** 
+****
+****
+*** 
+**  
+*  
+
+
+for odd number of rows
+
+*   
+**  
+*** 
+****
+*** 
+**  
+* 
+
+
+
+
+#include<iostream>
+using namespace std;
+
+int main(int argc, char const *argv[])
+{
+	cout << "Enter number if rows: \n";
+	int rows,jLimit,k=0;
+	cin >> rows;
+	if(rows%2 == 0){
+		jLimit = rows/2;
+	} else {
+		jLimit = (rows+1)/2;
+	}
+	for(int i=1;i<=rows;i++){
+		if(rows%2 ==0){
+			if(i<=(rows/2)){
+				k++;
+			}
+			if(i>(rows/2 + 1)) {
+				k--;
+			}
+		} else{
+			(i<=(rows+1)/2)?(k++):(k--);
+		}
+		for(int j=1;j<=jLimit;j++){
+			if(j<=k){
+				cout << "*";
+			} else {
+				cout << " ";
+			}
+		}
+		cout << "\n";
+	}
+
+	return 0;
+}
