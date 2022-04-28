@@ -1,0 +1,34 @@
+   1    
+   232   
+  34543  
+ 4567654 
+567898765
+
+
+#include<iostream>
+using namespace std;
+
+int main(int argc, char const *argv[])
+{
+	int rows = 5;
+	int cols = 2*rows - 1;
+	int k = 0;
+	for(int i=1;i<=rows;i++){
+		k = i;
+		int q = k;
+		for(int j=1;j<=cols;j++){
+			if(j>(rows-i) && j<(rows+i)){
+				cout << q;
+				if((j+1)<=rows){
+				q += 1;
+				} else {
+					q -= 1;
+				}
+			} else {
+				cout << " ";
+			}
+		}
+		cout << "\n";
+	}
+	return 0;
+}
