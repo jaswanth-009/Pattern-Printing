@@ -1,0 +1,83 @@
+          0          
+         121         
+        23432        
+       3456543       
+      456787654      
+     56789098765     
+    6789012109876    
+   789012343210987   
+  89012345654321098  
+ 9012345678765432109 
+012345678909876543210
+ 9012345678765432109 
+  89012345654321098  
+   789012343210987   
+    6789012109876    
+     56789098765     
+      456787654      
+       3456543       
+        23432        
+         121         
+          0          
+
+
+#include<iostream>
+using namespace std;
+
+int main(int argc, char const *argv[])
+{
+	int rows = 21;
+	int cols = rows;
+	int half;
+	int k=0;
+	if(cols%2 == 0){
+		half = cols/2;
+	} else {
+		half = (cols+1)/2;
+	}
+
+	int num1 = -1;
+	int num2;
+	for(int i=1;i<=rows;i++){
+		if(i<half){
+			num1++;
+		} else if(i == half+1){
+			num1 = 9;
+		} else if(i > half){
+			num1--;
+		} else {
+			num1 = 0;
+		}
+		num2 = num1-1;
+		if(i<=half){
+			k++;
+		} else{
+			k--;
+		}
+		for (int j = 1; j <=cols; ++j)
+		{	
+			if(j>(half-k) && j<(half+k)){
+				if(j<=half){
+					if(num2<9){
+						num2++;
+					}else{
+						num2 = 0;
+					}
+				} else{
+					if(num2>0){
+						num2--;
+					} else{
+						num2 = 9;
+					}
+				}
+				cout << num2;
+				
+			}
+			else {
+				cout << " ";
+			}
+		}
+		cout<< "\n";
+	}
+	return 0;
+}
