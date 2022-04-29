@@ -1,0 +1,44 @@
+        1        
+       212       
+      32123      
+     4321234     
+    543212345    
+   65432123456   
+  7654321234567  
+ 876543212345678 
+98765432123456789
+
+
+#include<iostream>
+using namespace std;
+
+int main(int argc, char const *argv[])
+{
+	int rows = 9;
+	int cols = 2*rows - 1;
+	int half;
+	int num = 0;
+	if(cols%2 ==0){
+		half = cols/2;
+	}else {
+		half = (cols+1)/2;
+	}
+	for(int i=1;i<=rows;i++){
+		num++;
+		int num2 = num;
+		for(int j=1;j<=cols;j++){
+			if(j>(half-i) && j<(half+i)){
+				cout << num2;
+				if((j+1)<=half){
+					num2--;
+				}else{
+					num2++;
+				}
+			}else{
+				cout << " ";
+			}
+		}
+		cout <<"\n";
+	}
+	return 0;
+}
