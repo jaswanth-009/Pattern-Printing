@@ -1,0 +1,40 @@
+    A    
+   ABA   
+  ABCBA  
+ ABCDCBA 
+ABCDEDCBA
+
+
+#include<iostream>
+using namespace std;
+
+int main(int argc, char const *argv[])
+{
+	int rows = 5;
+	int cols = rows*2 - 1;
+	int half;
+
+	if(cols%2 == 0){
+		half = cols/2;
+	} else {
+		half = (cols+1)/2;
+	}
+
+	for(int i=1;i<=rows;i++){
+		int num = 64;
+		for(int j=1;j<=cols;j++){
+			if(j>(half-i) && j<(half+i)){
+				if(j<=half){
+				num++;
+				}else {
+					num--;
+				}
+				cout << char(num);
+			} else {
+				cout << " ";
+			}
+		}
+		cout << "\n";
+	}
+	return 0;
+}
