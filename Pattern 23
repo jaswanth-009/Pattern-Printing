@@ -1,0 +1,38 @@
+1         
+10        
+101       
+1010      
+10101     
+101010    
+1010101   
+10101010  
+101010101 
+1010101010
+
+
+#include<iostream>
+using namespace std;
+
+int main(int argc, char const *argv[])
+{
+	int rows = 10;
+	int cols = rows;
+	
+	for(int i=1;i<=rows;i++){
+		int num = 0;
+		for(int j=1;j<=cols;j++){
+			if(j<=i){
+				if(num == 0){
+					num++;
+				} else {
+					num--;
+				}
+				cout << num;
+			}else{
+				cout << " ";
+			}
+		}
+		cout << "\n";
+	}
+	return 0;
+}
