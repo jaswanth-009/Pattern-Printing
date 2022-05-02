@@ -1,0 +1,70 @@
+        1        
+       A B       
+      1 2 3      
+     A B C D     
+    1 2 3 4 5    
+   A B C D E F   
+  1 2 3 4 5 6 7  
+ A B C D E F G H 
+1 2 3 4 5 6 7 8 9
+
+
+#include<iostream>
+using namespace std;
+
+int main(int argc, char const *argv[])
+{
+	int rows = 9;
+	int cols = 2*rows - 1;
+	bool printNumber = true;
+	bool printAlphabet = false;
+	
+	int half_col;
+
+	if(cols%2 ==0){
+		half_col = cols/2;
+	} else{
+		half_col = (cols+1)/2;
+	}
+
+	for(int i=1;i<=rows;i++){
+		int number = 0;
+		int alphabet = 64;
+		bool space = false;
+		if(printNumber){
+			number++;
+		}
+
+		if(printAlphabet){
+			alphabet++;
+		}
+
+		for(int j=1;j<=cols;j++){
+			if(j>(half_col-i) && j<(half_col+i)){
+				
+				if(printNumber && !space){
+					cout << number;
+					number++;
+					space = !space;
+				}else if(printAlphabet && !space){
+					cout << char(alphabet);
+					alphabet++;
+					space = !space;
+				} else if(space){
+					space = !space;
+					cout << " ";
+				} else {
+					cout << " ";
+				}
+				
+			}
+			else{
+				cout << " ";
+			}
+		}
+		cout << "\n";
+		printNumber = !printNumber;
+		printAlphabet = !printAlphabet;
+	}
+	return 0;
+}
