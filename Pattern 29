@@ -1,0 +1,31 @@
+     A
+    CB
+   FED
+  JIHG
+ ONMLK
+UTSRQP
+
+
+#include<iostream>
+using namespace std;
+
+int main(int argc, char const *argv[])
+{
+	int rows = 6;
+	int cols = rows;
+	int k = 64;
+	for(int i=1;i<=rows;i++){
+		k += i;
+		int dup = k;
+		for(int j=1;j<=cols;j++){
+			if(j>(cols-i)){
+				cout << char(dup);
+				dup--;
+			} else{
+				cout << " ";
+			}
+		}
+		cout << "\n";
+	}
+	return 0;
+}
